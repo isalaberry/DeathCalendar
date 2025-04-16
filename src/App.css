@@ -157,3 +157,106 @@ h1 {
     font-size: 0.5em;
    }
 }
+
+/* ... (Reset, app-container, h1 como antes) ... */
+
+/* --- NOVOS ESTILOS PARA INPUT DE DATA --- */
+.birthdate-input-section {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f9f9f9; /* Fundo levemente diferente */
+  border-radius: 5px;
+  border: 1px solid #eee;
+  display: flex; /* Alinha itens lado a lado */
+  justify-content: center; /* Centraliza o conteúdo */
+  align-items: center; /* Alinha verticalmente */
+  flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+  gap: 10px; /* Espaçamento entre label, input e botão */
+}
+
+.birthdate-input-section label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px; /* Pequeno espaço antes do input */
+}
+
+.birthdate-input-section input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.birthdate-input-section button {
+  padding: 8px 15px;
+  background-color: #3498db; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.birthdate-input-section button:hover {
+  background-color: #2980b9; /* Cor mais escura no hover */
+}
+
+/* --- FIM ESTILOS INPUT DE DATA --- */
+
+
+/* --- Estilos para a Barra de Progresso (sem alterações) --- */
+/* ... (código da barra de progresso como antes) ... */
+.progress-section {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+/* ... etc ... */
+
+/* --- Estilos para a Grelha (sem alterações) --- */
+/* ... (código da grelha e quadrados como antes) ... */
+.weeks-grid-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 3px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+/* ... etc ... */
+
+/* --- Media Queries (Ajustar se necessário para a nova secção) --- */
+@media (max-width: 768px) {
+   /* ... (ajustes anteriores) ... */
+   .birthdate-input-section {
+      gap: 8px;
+      padding: 10px;
+   }
+   .birthdate-input-section input[type="date"],
+   .birthdate-input-section button {
+       padding: 6px 10px;
+       font-size: 0.9em;
+   }
+}
+
+@media (max-width: 480px) {
+    /* ... (ajustes anteriores) ... */
+    .birthdate-input-section {
+       flex-direction: column; /* Coloca label, input, botão um abaixo do outro */
+       align-items: stretch; /* Faz input e botão ocuparem largura */
+       gap: 10px;
+    }
+    .birthdate-input-section label {
+        margin-right: 0;
+        margin-bottom: 3px; /* Espaço abaixo do label */
+        text-align: center;
+    }
+     .birthdate-input-section input[type="date"],
+     .birthdate-input-section button {
+         font-size: 1em; /* Restaura tamanho fonte para melhor toque */
+     }
+}
