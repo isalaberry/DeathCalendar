@@ -3,7 +3,7 @@
 **Visualize as Semanas da Sua Vida**
 
 [![Screenshot da Aplicação](./public/death-calendar-three.vercel.app_.png)](https://death-calendar-three.vercel.app/)
-*(Clique na imagem para ver a demo!)*
+<p align="center"><em>(Clique na imagem para ver a demo!)</em></p>
 
 ---
 
@@ -13,11 +13,13 @@
 
 ## 📜 Conceito
 
-Inspirado na filosofia *memento mori*, o Death Calendar é uma aplicação web interativa que o ajuda a visualizar o tempo. Ao inserir a sua data de nascimento, a aplicação gera uma grelha onde cada pequeno quadrado representa uma semana da sua vida, com base numa expectativa de vida padrão de 80 anos.
+Memento Mori. Lembre-se da Morte. O Death Calendar serve esse único propósito sombrio. Forneça a data em que foi lançado neste mundo, e veja o calendário da sua própria obsolescência: 80 anos, semana a semana, cada quadrado um passo para mais perto do fim.
 
-Marque as semanas que já passaram, veja o seu progresso através da vida numa barra percentual e reflita sobre a preciosidade e finitude do tempo.
+Pinte de negro as semanas que o tempo já devorou. Observe a barra de progresso como o nível a subir num caixão iminente. Não há aqui otimismo, apenas a constatação brutal da finitude. Sinta a náusea Sartriana ao perceber que cada ação, cada semana marcada, talvez não passe de um gesto fútil perante o silêncio cósmico e a inevitabilidade do nada. Encare de frente o espectro do "pouco tempo", a vacuidade do sentido e a sua própria, transitória, inutilidade!
 
+<br>
 > Viva a sua vida como se fosse morrer. **Porque você vai.**
+<br>
 
 ## ✨ Funcionalidades
 
@@ -35,7 +37,7 @@ Marque as semanas que já passaram, veja o seu progresso através da vida numa b
 * [React](https://reactjs.org/) (v19)
 * [Vite](https://vitejs.dev/)
 * JavaScript
-* CSS Moderno (Flexbox, Grid)
+* CSS
 
 ## 🚀 Como Usar Online
 
