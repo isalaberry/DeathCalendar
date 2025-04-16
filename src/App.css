@@ -23,6 +23,12 @@ h1 {
   color: #2c3e50;
 }
 
+.title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
 .weeks-grid-container {
   margin-top: 20px;
   display: flex;
@@ -55,7 +61,7 @@ h1 {
 }
 
 .new-year-marker {
-   border-left: 3px solid #ff7f50;
+   border-left: 3px solid black;
    position: relative;
 }
 
@@ -90,7 +96,7 @@ h1 {
 
 .progress-bar-filled {
   height: 100%;
-  background-color: #3498db;
+  background-color: black;
   border-radius: 11px;
   transition: width 0.6s ease-out;
 }
@@ -119,7 +125,8 @@ h1 {
 
 .instruction-text {
     margin-top: 30px;
-    font-size: 0.9em;
+    font-size: 1.2em;
+    font-style: italic;
     color: #555;
 }
 
@@ -139,6 +146,15 @@ h1 {
     left: -22px;
     font-size: 0.6em;
    }
+   .birthdate-input-section {
+      gap: 8px;
+      padding: 10px;
+   }
+   .birthdate-input-section input[type="date"],
+   .birthdate-input-section button {
+       padding: 6px 10px;
+       font-size: 0.9em;
+   }
 }
 
 @media (max-width: 480px) {
@@ -156,29 +172,40 @@ h1 {
     left: -18px;
     font-size: 0.5em;
    }
+   .birthdate-input-section {
+       flex-direction: column;
+       align-items: stretch;
+       gap: 10px;
+   }
+   .birthdate-input-section label {
+        margin-right: 0;
+        margin-bottom: 3px;
+        text-align: center;
+   }
+   .birthdate-input-section input[type="date"],
+   .birthdate-input-section button {
+       font-size: 1em;
+   }
 }
 
-/* ... (Reset, app-container, h1 como antes) ... */
-
-/* --- NOVOS ESTILOS PARA INPUT DE DATA --- */
 .birthdate-input-section {
   margin-top: 15px;
   margin-bottom: 25px;
   padding: 15px;
-  background-color: #f9f9f9; /* Fundo levemente diferente */
+  background-color: #f9f9f9;
   border-radius: 5px;
   border: 1px solid #eee;
-  display: flex; /* Alinha itens lado a lado */
-  justify-content: center; /* Centraliza o conteúdo */
-  align-items: center; /* Alinha verticalmente */
-  flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
-  gap: 10px; /* Espaçamento entre label, input e botão */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .birthdate-input-section label {
   font-weight: bold;
   color: #333;
-  margin-right: 5px; /* Pequeno espaço antes do input */
+  margin-right: 5px;
 }
 
 .birthdate-input-section input[type="date"] {
@@ -190,7 +217,7 @@ h1 {
 
 .birthdate-input-section button {
   padding: 8px 15px;
-  background-color: #3498db; /* Cor do botão */
+  background-color: black;
   color: white;
   border: none;
   border-radius: 4px;
@@ -201,62 +228,24 @@ h1 {
 }
 
 .birthdate-input-section button:hover {
-  background-color: #2980b9; /* Cor mais escura no hover */
+  background-color: gray;
 }
 
-/* --- FIM ESTILOS INPUT DE DATA --- */
-
-
-/* --- Estilos para a Barra de Progresso (sem alterações) --- */
-/* ... (código da barra de progresso como antes) ... */
-.progress-section {
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-/* ... etc ... */
-
-/* --- Estilos para a Grelha (sem alterações) --- */
-/* ... (código da grelha e quadrados como antes) ... */
-.weeks-grid-container {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 3px;
-  padding: 10px;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
-}
-/* ... etc ... */
-
-/* --- Media Queries (Ajustar se necessário para a nova secção) --- */
-@media (max-width: 768px) {
-   /* ... (ajustes anteriores) ... */
-   .birthdate-input-section {
-      gap: 8px;
-      padding: 10px;
-   }
-   .birthdate-input-section input[type="date"],
-   .birthdate-input-section button {
-       padding: 6px 10px;
-       font-size: 0.9em;
-   }
+.github-link {
+  text-align: center;
+  margin-top: 30px; /* Espaço acima do link */
+  margin-bottom: 10px; /* Espaço abaixo do link */
+  font-size: 0.9em;
+  color: #555; /* Cor do texto "Desenvolvido por" */
 }
 
-@media (max-width: 480px) {
-    /* ... (ajustes anteriores) ... */
-    .birthdate-input-section {
-       flex-direction: column; /* Coloca label, input, botão um abaixo do outro */
-       align-items: stretch; /* Faz input e botão ocuparem largura */
-       gap: 10px;
-    }
-    .birthdate-input-section label {
-        margin-right: 0;
-        margin-bottom: 3px; /* Espaço abaixo do label */
-        text-align: center;
-    }
-     .birthdate-input-section input[type="date"],
-     .birthdate-input-section button {
-         font-size: 1em; /* Restaura tamanho fonte para melhor toque */
-     }
+.github-link a {
+  color: purple; /* Cor do link (azul) */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-weight: bold;
+}
+
+.github-link a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+  color: darkslateblue; /* Escurece um pouco a cor no hover */
 }
