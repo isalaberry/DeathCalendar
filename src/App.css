@@ -1,4 +1,3 @@
-/* Reset básico e fonte */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,92 +5,155 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f4f4; /* Cor de fundo suave */
+  background-color: #f4f4f4;
   color: #333;
 }
 
 .app-container {
-  max-width: 1200px; /* Limita a largura máxima */
-  margin: 20px auto; /* Centraliza e adiciona margem */
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
   text-align: center;
-  background-color: #fff; /* Fundo branco para o conteúdo */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
-  border-radius: 8px; /* Cantos arredondados */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
 }
 
 h1 {
-  color: #2c3e50; /* Cor mais escura para o título */
+  color: #2c3e50;
 }
 
 .weeks-grid-container {
-  margin-top: 30px;
-  /* Usar CSS Grid para um controle mais preciso */
-  display: grid;
-  /* Cria 52 colunas de largura igual, ocupando o espaço disponível */
-  grid-template-columns: repeat(52, minmax(10px, 1fr));
-  /* Espaçamento entre os quadrados */
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 3px;
-  justify-content: center; /* Tenta centralizar a grid se for mais estreita que o container */
-  padding: 10px; /* Espaçamento interno */
-  overflow-x: auto; /* Permite scroll horizontal se necessário em telas pequenas */
-  max-width: 100%; /* Garante que não ultrapasse o container */
+  padding: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
 }
-
-/* Estilização da linha do ano (opcional, pode remover se não usar) */
-.year-row {
-    /* Se usar flexbox em vez de grid no container principal: */
-    /* display: flex; */
-    /* width: 100%; */
-
-    /* Se usar CSS Grid como acima, esta div é menos necessária para layout, */
-    /* mas mantém a estrutura lógica no JSX. A linha abaixo garante que */
-    /* o conteúdo da linha (os 52 quadrados) preencha o espaço da grid. */
-    display: contents; /* Faz com que os filhos (quadrados) se comportem como filhos diretos do grid container */
-}
-
 
 .week-square {
-  /* Define a proporção do quadrado */
-  aspect-ratio: 1 / 1;
-  /* Tamanho mínimo para garantir visibilidade */
-  min-width: 10px;
-  min-height: 10px;
-  /* Cor de fundo padrão (semana não vivida/não clicada) */
-  background-color: #e0e0e0; /* Cinza claro */
-  border: 1px solid #ccc; /* Borda sutil */
+  width: 12px;
+  height: 12px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
   cursor: pointer;
-  transition: background-color 0.2s ease; /* Transição suave ao clicar */
-  box-sizing: border-box; /* Inclui borda no tamanho total */
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 .week-square:hover {
-  background-color: #c0c0c0; /* Cor ao passar o mouse */
+  background-color: #c0c0c0;
   border-color: #aaa;
 }
 
 .week-square.clicked {
-  background-color: #000000; /* Preto quando clicado */
+  background-color: #000000;
   border-color: #000000;
 }
 
-/* Media query para telas menores - ajusta o tamanho/gap */
+.new-year-marker {
+   border-left: 3px solid #ff7f50;
+   position: relative;
+}
+
+.new-year-marker::before {
+  content: attr(data-year);
+  position: absolute;
+  left: -25px;
+  top: -1px;
+  width: 20px;
+  text-align: right;
+  font-size: 0.65em;
+  color: #888;
+  font-weight: bold;
+}
+
+.progress-section {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.progress-bar-container {
+  width: 90%;
+  max-width: 600px;
+  height: 22px;
+  background-color: #e0e0e0;
+  border-radius: 11px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.progress-bar-filled {
+  height: 100%;
+  background-color: #3498db;
+  border-radius: 11px;
+  transition: width 0.6s ease-out;
+}
+
+.progress-bar-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  user-select: none;
+}
+
+.progress-label {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 5px;
+}
+
+.instruction-text {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #555;
+}
+
 @media (max-width: 768px) {
-  .weeks-grid-container {
-    gap: 2px;
-    grid-template-columns: repeat(52, minmax(5px, 1fr)); /* Quadrados menores */
+  .progress-bar-container {
+     height: 20px;
+     width: 95%;
   }
-  .week-square {
-     min-width: 5px;
-     min-height: 5px;
+  .progress-bar-text {
+      font-size: 0.75em;
   }
-  .app-container {
-      padding: 10px;
+   .week-square {
+     width: 10px;
+     height: 10px;
   }
+   .new-year-marker::before {
+    left: -22px;
+    font-size: 0.6em;
+   }
 }
 
 @media (max-width: 480px) {
-   .weeks-grid-container {
-      gap: 1px;
+   .progress-bar-container {
+      height: 18px;
+   }
+   .progress-bar-text {
+       font-size: 0.7em;
+   }
+    .week-square {
+     width: 7px;
+     height: 7px;
+   }
+   .new-year-marker::before {
+    left: -18px;
+    font-size: 0.5em;
    }
 }
