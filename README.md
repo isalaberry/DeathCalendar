@@ -18,7 +18,8 @@ Memento Mori. Lembre-se da Morte. O Death Calendar serve esse único propósito 
 Pinte de negro as semanas que o tempo já devorou. Observe a barra de progresso como o nível a subir num caixão iminente. Não há aqui otimismo, apenas a constatação brutal da finitude. Sinta a náusea Sartriana ao perceber que cada ação, cada semana marcada, talvez não passe de um gesto fútil perante o silêncio cósmico e a inevitabilidade do nada. Encare de frente o espectro do "pouco tempo", a vacuidade do sentido e a sua própria, transitória, inutilidade!
 
 <br>
-> Viva a sua vida como se fosse morrer. **Porque você vai.**
+> Viva a sua vida como se fosse morrer.  
+> **Porque você vai.**
 <br>
 
 ## ✨ Funcionalidades
@@ -53,8 +54,8 @@ Se quiser executar o projeto na sua máquina:
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO_GIT>
-    cd death-calendar # Ou o nome da pasta do projeto
+    git clone <https://github.com/isalaberry/DeathCalendar.git>
+    cd semanas-da-minha-vida
     ```
 2.  **Instale as Dependências:**
     ```bash
