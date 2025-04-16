@@ -2,7 +2,7 @@
 
 **Visualize as Semanas da Sua Vida**
 
-[![Screenshot da Aplicação](./death-calendar-three.vercel.app_.png)](https://death-calendar-three.vercel.app/)
+[![Screenshot da Aplicação](./public/death-calendar-three.vercel.app_.png)](https://death-calendar-three.vercel.app/)
 *(Clique na imagem para ver a demo!)*
 
 ---
