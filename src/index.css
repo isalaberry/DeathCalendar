@@ -1,0 +1,154 @@
+/* Reset básico e fonte (mantido como antes) */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+/* --- Estilos para Rótulos dos Meses --- */
+.month-labels-container {
+  display: flex; /* Usa flexbox para alinhar os meses */
+  margin-top: 25px; /* Espaço acima da grelha */
+  margin-bottom: 5px; /* Espaço abaixo dos meses */
+  padding-right: 15px; /* Ajuste para compensar possível scrollbar */
+  box-sizing: border-box;
+}
+
+.month-label-spacer {
+  /* Largura aproximada da coluna de rótulos de ano + gap */
+  /* Ajuste este valor conforme necessário para alinhar */
+  flex-basis: 40px; /* Ajuste este valor! */
+  flex-shrink: 0;
+}
+
+.month-label {
+  flex-grow: 1; /* Faz com que cada rótulo ocupe espaço igual */
+  /* Baseado em 52 semanas / 12 meses = ~4.33 semanas/mês */
+  flex-basis: calc(100% / 12); /* Divide o espaço restante por 12 */
+  font-size: 0.7em;
+  color: #666;
+  text-align: center;
+  padding: 2px 0;
+  white-space: nowrap; /* Evita quebra de linha */
+  overflow: hidden; /* Esconde se for muito pequeno */
+  text-overflow: ellipsis; /* Adiciona "..." se não couber */
+}
+
+/* --- Estilos para a Grelha Principal (Anos + Semanas) --- */
+.weeks-grid-container {
+  margin-top: 5px; /* Reduzido porque o espaço está acima dos meses */
+  display: grid;
+  /* 1 coluna para ano (auto) + 52 colunas para semanas */
+  /* O tamanho mínimo do quadrado é definido em .week-square */
+  grid-template-columns: auto repeat(52, minmax(10px, 1fr));
+  align-items: center; /* Alinha verticalmente o rótulo do ano com os quadrados */
+  /* Espaçamento entre linhas (anos) e colunas (semanas) */
+  row-gap: 4px; /* Aumenta um pouco o espaço entre anos */
+  column-gap: 3px;
+  padding: 10px;
+  overflow-x: auto; /* Permite scroll horizontal */
+  max-width: 100%;
+  border-top: 1px solid #eee; /* Linha separadora acima da grelha */
+  padding-top: 10px;
+}
+
+/* Estilo para o rótulo do ano */
+.year-label {
+  grid-column: 1 / 2; /* Ocupa a primeira coluna da grid */
+  font-size: 0.7em;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 8px; /* Espaço entre o número e os quadrados */
+  color: #555;
+  /* Garante que não quebre linha */
+  white-space: nowrap;
+}
+
+/* Estilo para o quadrado da semana (sem grandes alterações) */
+.week-square {
+  grid-column: auto; /* Deixa a grid posicionar nas colunas 2 a 53 */
+  aspect-ratio: 1 / 1;
+  min-width: 10px;
+  min-height: 10px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.week-square:hover {
+  background-color: #c0c0c0;
+  border-color: #aaa;
+}
+
+.week-square.clicked {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+/* --- Media Queries (Ajustes para telas menores) --- */
+@media (max-width: 768px) {
+  .weeks-grid-container {
+    gap: 2px; /* Reduz gaps */
+    grid-template-columns: auto repeat(52, minmax(6px, 1fr)); /* Quadrados menores */
+    padding: 5px;
+  }
+  .week-square {
+     min-width: 6px; /* Ajusta tamanho mínimo */
+     min-height: 6px;
+  }
+  .year-label {
+     font-size: 0.6em;
+     padding-right: 5px;
+  }
+  .month-label-spacer {
+      flex-basis: 30px; /* Reduz o spacer */
+  }
+   .month-label {
+      font-size: 0.6em;
+  }
+  .app-container {
+      padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+   .weeks-grid-container {
+      gap: 1px; /* Gaps mínimos */
+      grid-template-columns: auto repeat(52, minmax(4px, 1fr)); /* Quadrados ainda menores */
+   }
+   .week-square {
+     min-width: 4px;
+     min-height: 4px;
+   }
+   .year-label {
+     font-size: 0.5em;
+     padding-right: 3px;
+   }
+   .month-label-spacer {
+       flex-basis: 20px; /* Reduz mais o spacer */
+   }
+   .month-label {
+       font-size: 0.5em;
+   }
+}

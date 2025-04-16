@@ -1,0 +1,97 @@
+/* Reset básico e fonte */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4; /* Cor de fundo suave */
+  color: #333;
+}
+
+.app-container {
+  max-width: 1200px; /* Limita a largura máxima */
+  margin: 20px auto; /* Centraliza e adiciona margem */
+  padding: 20px;
+  text-align: center;
+  background-color: #fff; /* Fundo branco para o conteúdo */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+  border-radius: 8px; /* Cantos arredondados */
+}
+
+h1 {
+  color: #2c3e50; /* Cor mais escura para o título */
+}
+
+.weeks-grid-container {
+  margin-top: 30px;
+  /* Usar CSS Grid para um controle mais preciso */
+  display: grid;
+  /* Cria 52 colunas de largura igual, ocupando o espaço disponível */
+  grid-template-columns: repeat(52, minmax(10px, 1fr));
+  /* Espaçamento entre os quadrados */
+  gap: 3px;
+  justify-content: center; /* Tenta centralizar a grid se for mais estreita que o container */
+  padding: 10px; /* Espaçamento interno */
+  overflow-x: auto; /* Permite scroll horizontal se necessário em telas pequenas */
+  max-width: 100%; /* Garante que não ultrapasse o container */
+}
+
+/* Estilização da linha do ano (opcional, pode remover se não usar) */
+.year-row {
+    /* Se usar flexbox em vez de grid no container principal: */
+    /* display: flex; */
+    /* width: 100%; */
+
+    /* Se usar CSS Grid como acima, esta div é menos necessária para layout, */
+    /* mas mantém a estrutura lógica no JSX. A linha abaixo garante que */
+    /* o conteúdo da linha (os 52 quadrados) preencha o espaço da grid. */
+    display: contents; /* Faz com que os filhos (quadrados) se comportem como filhos diretos do grid container */
+}
+
+
+.week-square {
+  /* Define a proporção do quadrado */
+  aspect-ratio: 1 / 1;
+  /* Tamanho mínimo para garantir visibilidade */
+  min-width: 10px;
+  min-height: 10px;
+  /* Cor de fundo padrão (semana não vivida/não clicada) */
+  background-color: #e0e0e0; /* Cinza claro */
+  border: 1px solid #ccc; /* Borda sutil */
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* Transição suave ao clicar */
+  box-sizing: border-box; /* Inclui borda no tamanho total */
+}
+
+.week-square:hover {
+  background-color: #c0c0c0; /* Cor ao passar o mouse */
+  border-color: #aaa;
+}
+
+.week-square.clicked {
+  background-color: #000000; /* Preto quando clicado */
+  border-color: #000000;
+}
+
+/* Media query para telas menores - ajusta o tamanho/gap */
+@media (max-width: 768px) {
+  .weeks-grid-container {
+    gap: 2px;
+    grid-template-columns: repeat(52, minmax(5px, 1fr)); /* Quadrados menores */
+  }
+  .week-square {
+     min-width: 5px;
+     min-height: 5px;
+  }
+  .app-container {
+      padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+   .weeks-grid-container {
+      gap: 1px;
+   }
+}
