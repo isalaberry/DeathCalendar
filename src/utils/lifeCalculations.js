@@ -15,7 +15,7 @@ export const calculateLifeInfo = (birthDate, totalYears) => {
     const totalWeeks = Math.ceil(totalDays / 7);
 
     const yearStartWeekIndices = {};
-    yearStartWeekIndices[0] = 1; // Ano 1 começa na semana 0
+    yearStartWeekIndices[0] = 0; // Ano 1 começa na semana 0
 
     for (let year = 1; year < totalYears; year++) {
         const yearStartDate = new Date(birthDate);
@@ -27,7 +27,7 @@ export const calculateLifeInfo = (birthDate, totalYears) => {
         const startWeekIndex = Math.floor(daysPassed / 7);
 
         if (startWeekIndex >= 0 && startWeekIndex < totalWeeks) {
-            yearStartWeekIndices[startWeekIndex] = year + 1;
+            yearStartWeekIndices[startWeekIndex] = year;
         }
     }
 
